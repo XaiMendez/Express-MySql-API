@@ -5,7 +5,7 @@ const app = require("./app.js");
 const sequelize = require("./connection.js");
 
 // Server
-const port = process.env.PORT || 1234;
+const port = process.env.PORT || 3000;
 
 sequelize
 .authenticate()
@@ -13,7 +13,15 @@ sequelize
 	
 	console.log('Database connection has been established successfully.');
 	app.listen(port, function(){
-		console.log(":: API REST SERVER IN http://localhost:" + port + "/");
+
+		// Enable CORS
+		app.use(function(req, res, next) {
+			res.header("Access-Control-Allow-Origin", "*");
+			res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+			next();
+		});
+
+		console.log(":: API REST SERVER IN http://127.0.0.1:" + port + "/");
 	})
 
 })

@@ -3,7 +3,6 @@
 // import user model
 const User = require("../models/user.model.js");
 
-// test function
 function test(req, res){
 	res.status(200).send({message: 'hello from userController'});
 }

@@ -13,8 +13,10 @@ app.use(bodyParser.json());
 
 // Routes
 const userRoute = require("./routes/user.route.js");
+const swaggerRoute = require("./routes/swagger.route.js");
 
 // Base route
+app.use("/", swaggerRoute);
 app.use("/api", userRoute);
 
 module.exports = app;
