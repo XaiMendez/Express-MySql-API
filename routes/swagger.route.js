@@ -16,7 +16,7 @@ const swaggerDefinition = {
     version: '1.0.0',
     description: 'Demonstrating how to describe a RESTful API with Express Js',
   },
-  host: 'localhost:3000',
+  host: '127.0.0.1:3000',
   basePath: '/api',
 };
 

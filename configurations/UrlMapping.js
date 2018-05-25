@@ -1,30 +1,5 @@
  /**
   * @swagger
-  * /user:
-  *   post:
-  *     tags:
-  *       - User
-  *     summary: Create user
-  *     description: Create user
-  *     operationId: createUser
-  *     produces:
-  *       - application/json
-  *     parameters:
-  *       - name: user
-  *         description: User object
-  *         in: body
-  *         required: true
-  *         schema:
-  *           $ref: '#/definitions/User'
-  *     responses:
-  *       201:
-  *         description: Return saved user
-  *         schema:
-  *           $ref: '#/definitions/User'
-  */
-
- /**
-  * @swagger
   * definition:
   *   User:
   *     properties:
@@ -36,7 +11,7 @@
 
    /**
   * @swagger
-  * /api/user:
+  * /user:
   *   get:
   *     tags:
   *       - User
@@ -49,29 +24,6 @@
   *     responses:
   *       200:
   *         description: Get all users
-  */
-
- /**
-  * @swagger
-  * /user:
-  *   post:
-  *     tags:
-  *       - User
-  *     description: Save user
-  *     produces:
-  *       - application/json
-  *     parameters:
-  *       - name: user
-  *         description: User object
-  *         in: body
-  *         required: true
-  *         schema:
-  *           $ref: '#/definitions/User'
-  *     responses:
-  *       200:
-  *         description: Return saved user
-  *         schema:
-  *           $ref: '#/definitions/User'
   */
 
  /**
@@ -100,7 +52,9 @@
   *   post:
   *     tags:
   *       - User
-  *     description: Save user
+  *     summary: Create user
+  *     description: Create user
+  *     operationId: createUser
   *     produces:
   *       - application/json
   *     parameters:
