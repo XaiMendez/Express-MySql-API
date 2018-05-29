@@ -1,7 +1,11 @@
 "use strict"
 
+// Dependencies
+const bcrypt = require("bcrypt-nodejs");
+
 // import user model
 const User = require("../models/user.model.js");
+
 
 function test(req, res){
 	res.status(200).send({message: 'hello from userController'});
@@ -18,15 +22,32 @@ function findAllUsers(req, res){
 
 // create
 function createUser(req, res){
-	User.create({  
-		username: req.body.username,
-		password: req.body.password
-	})
-	.then(newUser => {
-		let message = 'New user has been created.';
-		//console.log(message);
-		res.status(201).send({message: message});
-	});
+
+	let users = new User();
+	users.username = req.body.username;
+	users.password = req.body.password;
+
+	if(users.password){
+		bcrypt.hash(users.password, null, null, function(error, hash){
+			users.password = hash;
+
+			if(users.username){
+				// saving in the db
+				User.create({  
+					username: users.username,
+					password: users.password
+				})
+				.then(user => {
+					let message = 'New user has been created.';
+					//console.log(message);
+					res.status(201).send({message: message});
+				});
+
+			}
+		});
+	}
+
+
 }
 
 // find One
