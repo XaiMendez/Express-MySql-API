@@ -1,25 +1,19 @@
-#Express js -  mysql API v1.1
+#Express js -  mysql API v1.0
 
 ###### NPM
--   express
--   body-parser
--   sequelize
--   dotenv
--   mysql2
-- + swagger-jsdoc
-- + nodemon
+- bcrypt-nodejs
+- body-parser
+- dotenv
+- express
+- jwt-simple
+- moment
+- mysql2
+- nodemon
+- sequelize
+- swagger-jsdoc
 
 #   Features
--   User CRUD
-- + Swagger Documentation
+-  User CRUD
+-- Password encrypted
+- Swagger Documentation
 
-#Express js -  mysql API v1.0
-###### NPM
-- express
-- body-parser
-- sequelize
-- dotenv
-- mysql2
-
-# Features
-- User CRUD
