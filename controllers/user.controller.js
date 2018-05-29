@@ -64,14 +64,31 @@ function findUserById(req, res){
 
 // update
 function updateUserById(req, res){
-	User.update(
-		req.body,
-		{where: { id: req.params.id } })  
-	.then(user => {
-		let message = 'User has been updated.';
-		//console.log(message);
-		res.status(201).send({message: message});
-	})
+
+	let users = new User();
+	users.password = req.body.password;
+
+	if(users.password){
+		bcrypt.hash(users.password, null, null, function(error, hash){
+			req.body.password = hash;
+
+			if(req.body.username){
+
+				User.update(
+					req.body,
+					{where: {id : req.params.id }})  
+				.then(user => {
+					let message = 'User has been updated.';
+					//console.log(message);
+					res.status(201).send({message: message});
+				});
+			}
+
+		});
+
+	}
+
+	
 
 }
 
@@ -81,9 +98,6 @@ function deleteUser(req, res){
 		where: {id: req.params.id},
 	})
 	.then(user => {
-		pet.updateAttributes({
-			name: 'Maxy-boi-boi'
-		});
 		let message = 'User has been deleted.';
 		//console.log(message);
 		res.status(201).send({message: message});

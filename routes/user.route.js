@@ -13,7 +13,8 @@ var api = express.Router();
 api.get("/user/test", userController.test);
 api.get("/user", userController.findAllUsers);
 api.get("/user/:id", userController.findUserById);
-api.delete("/user/:id", userController.deleteUser);
 api.post("/user", userController.createUser);
+api.put("/user/:id", userController.updateUserById);
+api.delete("/user/:id", userController.deleteUser);
 
 module.exports = api;
