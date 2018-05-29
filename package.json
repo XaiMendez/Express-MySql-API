@@ -25,6 +25,7 @@
     "moment": "^2.22.1",
     "mysql2": "^1.5.3",
     "sequelize": "^4.37.8",
+    "sequelize-cli": "^4.0.0",
     "swagger-jsdoc": "^1.9.7"
   },
   "devDependencies": {

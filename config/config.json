@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "express_db",
+    "password": "Testdb$10",
+    "database": "express_db",
+    "host": "db4free.net",
+    "dialect": "mysql"
+  }
+}
