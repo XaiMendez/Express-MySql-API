@@ -4,7 +4,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require("../connection.js");
 
-const User = sequelize.define('users', {
+const User = sequelize.define('Users', {
 	id: {
 		type: Sequelize.INTEGER, primaryKey: true 
 	},
