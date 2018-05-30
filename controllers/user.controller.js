@@ -3,8 +3,12 @@
 // Dependencies
 const bcrypt = require("bcrypt-nodejs");
 
+const Sequelize = require('sequelize');
+const sequelize = require("../connection.js");
+
 // import user model
-const User = require("../models/user.model.js");
+const User = require("../models/user.js")(sequelize, Sequelize);
+//const User = require("../models").user;
 
 
 function test(req, res){

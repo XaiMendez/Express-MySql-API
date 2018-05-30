@@ -6,7 +6,8 @@ const sequelize = require("../connection.js");
 
 const User = sequelize.define('Users', {
 	id: {
-		type: Sequelize.INTEGER, primaryKey: true 
+		type: Sequelize.INTEGER,
+		primaryKey: true 
 	},
 	username: {
 		type: Sequelize.STRING
