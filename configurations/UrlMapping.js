@@ -107,6 +107,12 @@
   *         description: Delete user
   */
 
+
+
+
+
+
+
   /**
   * @swagger
   * /career:
@@ -216,7 +222,126 @@
   *         description: Delete career
   */
 
-   /**
+
+
+
+
+
+/**
+  * @swagger
+  * /Teacher:
+  *   get:
+  *     tags:
+  *       - Teacher
+  *     summary: Get all teachers
+  *     description: Get all teachers
+  *     operationId: findAllTeachers
+  *     produces:
+  *       - application/json
+  *     parameters: []
+  *     responses:
+  *       200:
+  *         description: Get all teachers
+  */
+
+ /**
+  * @swagger
+  * /teacher/{id}:
+  *   get:
+  *     tags:
+  *       - Teacher
+  *     summary: Get specific teacher
+  *     description: Get specific teacher
+  *     operationId: findTeacherById
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: id
+  *         description: Teacher id
+  *         in: path
+  *         required: true
+  *         type: string
+  *     responses:
+  *       200:
+  *         description: Get teacher by id
+  */
+
+ /**
+  * @swagger
+  * /teacher:
+  *   post:
+  *     tags:
+  *       - Teacher
+  *     summary: Create teacher
+  *     description: Create teacher
+  *     operationId: createTeacher
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: body
+  *         description: Teacher object that needs to be added to the database
+  *         in: body
+  *         required: true
+  *         schema:
+  *           $ref: '#/definitions/Teacher'
+  *     responses:
+  *       201:
+  *         description: Return saved teacher
+  *         schema:
+  *           $ref: '#/definitions/Teacher'
+  */
+
+ /**
+  * @swagger
+  * /career:
+  *   put:
+  *     tags:
+  *       - Career
+  *     summary: Update career
+  *     description: Update specific career detail
+  *     operationId: updateCareerById
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: body
+  *         description: Career object that needs to be updated to the database
+  *         in: body
+  *         required: true
+  *         schema:
+  *           $ref: '#/definitions/Career'
+  *     responses:
+  *       200:
+  *         description: Update career
+  */
+
+ /**
+  * @swagger
+  * /career/{id}:
+  *   delete:
+  *     tags:
+  *       - Career
+  *     summary: Delete career
+  *     description: Delete specific career detail
+  *     operationId: deleteCareer
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: id
+  *         description: Career id
+  *         in: path
+  *         required: true
+  *         type: string
+  *     responses:
+  *       200:
+  *         description: Delete career
+  */
+
+
+
+
+
+
+/**
   * @swagger
   * definition:
   *   User:
@@ -227,7 +352,7 @@
   *         type: string
   */
 
-     /**
+/**
   * @swagger
   * definition:
   *   Career:
@@ -236,4 +361,26 @@
   *         type: integer
   *       name:
   *         type: string
-  */
+*/
+
+/**
+  * @swagger
+  * definition:
+  *   Course:
+  *     properties:
+  *       id:
+  *         type: integer
+  *       name:
+  *         type: string
+*/
+
+/**
+  * @swagger
+  * definition:
+  *   Teacher:
+  *     properties:
+  *       id:
+  *         type: integer
+  *       name:
+  *         type: string
+*/
