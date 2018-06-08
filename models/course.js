@@ -1,19 +1,21 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
-	var course = sequelize.define('course', {
 
-		id: {
+module.exports = (sequelize, DataTypes) => {
+	var Course = sequelize.define('course', {
+
+		courseId: {
 			type: DataTypes.INTEGER,
 			primaryKey: true,
 			autoIncrement: true,
 		},
-		name: DataTypes.STRING
+		name: DataTypes.STRING,
 		
 	}, {});
 
-	course.associate = function(models) {
+	Course.associate = function(models) {
     // associations can be defined here
-  };
-  return course;
+    Course.hasMany(models.Group, {foreignKey: 'courseId'});
+};
+return Course;
 
 };
