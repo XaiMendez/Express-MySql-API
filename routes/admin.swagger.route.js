@@ -23,7 +23,7 @@ const swaggerDefinition = {
 // options for the swagger docs
 const options = {
   swaggerDefinition: swaggerDefinition, // swagger definition
-  apis: ['./configurations/UrlMapping.js'], // path where API specification are written
+  apis: ['./configurations/AdminUrlMapping.js'], // path where API specification are written
 };
 // initialize swagger-jsdoc
 const swaggerSpec = swaggerJSDoc(options);

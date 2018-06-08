@@ -11,10 +11,10 @@ var api = express.Router();
 
 // USER ROUTES
 api.get("/course/test", courseController.test);
-api.get("/course", courseController.findAllcourses);
-api.get("/course/:id", courseController.findcourseById);
-api.post("/course", courseController.createcourse);
-api.put("/course", courseController.updatecourseById);
-api.delete("/course/:id", courseController.deletecourse);
+api.get("/course", courseController.findAllCourses);
+api.get("/course/:id", courseController.findCourseById);
+api.post("/course", courseController.createCourse);
+api.put("/course", courseController.updateCourseById);
+api.delete("/course/:id", courseController.deleteCourse);
 
 module.exports = api;

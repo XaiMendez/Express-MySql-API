@@ -112,7 +112,6 @@
 
 
 
-
   /**
   * @swagger
   * /career:
@@ -229,7 +228,121 @@
 
 /**
   * @swagger
-  * /Teacher:
+  * /schedule:
+  *   get:
+  *     tags:
+  *       - Schedule
+  *     summary: Get all schedules
+  *     description: Get all schedules
+  *     operationId: findAllSchedules
+  *     produces:
+  *       - application/json
+  *     parameters: []
+  *     responses:
+  *       200:
+  *         description: Get all schedules
+  */
+
+ /**
+  * @swagger
+  * /schedule/{id}:
+  *   get:
+  *     tags:
+  *       - Schedule
+  *     summary: Get specific schedule
+  *     description: Get specific schedule
+  *     operationId: findScheduleById
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: id
+  *         description: Schedule id
+  *         in: path
+  *         required: true
+  *         type: string
+  *     responses:
+  *       200:
+  *         description: Get schedule by id
+  */
+
+ /**
+  * @swagger
+  * /schedule:
+  *   post:
+  *     tags:
+  *       - Schedule
+  *     summary: Create schedule
+  *     description: Create schedule
+  *     operationId: createSchedule
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: body
+  *         description: Schedule object that needs to be added to the database
+  *         in: body
+  *         required: true
+  *         schema:
+  *           $ref: '#/definitions/Schedule'
+  *     responses:
+  *       201:
+  *         description: Return saved teacher
+  *         schema:
+  *           $ref: '#/definitions/Schedule'
+  */
+
+ /**
+  * @swagger
+  * /schedule:
+  *   put:
+  *     tags:
+  *       - Schedule
+  *     summary: Update schedule
+  *     description: Update specific schedule detail
+  *     operationId: updateScheduleById
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: body
+  *         description: Schedule object that needs to be updated to the database
+  *         in: body
+  *         required: true
+  *         schema:
+  *           $ref: '#/definitions/Schedule'
+  *     responses:
+  *       200:
+  *         description: Update schedule
+  */
+
+ /**
+  * @swagger
+  * /schedule/{id}:
+  *   delete:
+  *     tags:
+  *       - Schedule
+  *     summary: Delete schedule
+  *     description: Delete specific schedule detail
+  *     operationId: deleteSchedule
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: id
+  *         description: Schedule id
+  *         in: path
+  *         required: true
+  *         type: string
+  *     responses:
+  *       200:
+  *         description: Delete schedule
+  */
+
+
+
+
+
+
+/**
+  * @swagger
+  * /teacher:
   *   get:
   *     tags:
   *       - Teacher
@@ -293,7 +406,7 @@
 
  /**
   * @swagger
-  * /career:
+  * /teacher:
   *   put:
   *     tags:
   *       - Teacher
@@ -367,6 +480,17 @@
   * @swagger
   * definition:
   *   Course:
+  *     properties:
+  *       id:
+  *         type: integer
+  *       name:
+  *         type: string
+*/
+
+/**
+  * @swagger
+  * definition:
+  *   Schedule:
   *     properties:
   *       id:
   *         type: integer
