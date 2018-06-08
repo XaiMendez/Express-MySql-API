@@ -63,7 +63,7 @@
 
  /**
   * @swagger
-  * /user/{id}:
+  * /user:
   *   put:
   *     tags:
   *       - User
@@ -219,6 +219,119 @@
   *     responses:
   *       200:
   *         description: Delete career
+  */
+
+
+
+
+
+/**
+  * @swagger
+  * /course:
+  *   get:
+  *     tags:
+  *       - Course
+  *     summary: Get all courses
+  *     description: Get all courses
+  *     operationId: findAllCourses
+  *     produces:
+  *       - application/json
+  *     parameters: []
+  *     responses:
+  *       200:
+  *         description: Get all courses
+  */
+
+ /**
+  * @swagger
+  * /course/{id}:
+  *   get:
+  *     tags:
+  *       - Course
+  *     summary: Get specific course
+  *     description: Get specific course
+  *     operationId: findCourseById
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: id
+  *         description: Course id
+  *         in: path
+  *         required: true
+  *         type: string
+  *     responses:
+  *       200:
+  *         description: Get course by id
+  */
+
+ /**
+  * @swagger
+  * /course:
+  *   post:
+  *     tags:
+  *       - Course
+  *     summary: Create course
+  *     description: Create course
+  *     operationId: createCourse
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: body
+  *         description: Course object that needs to be added to the database
+  *         in: body
+  *         required: true
+  *         schema:
+  *           $ref: '#/definitions/Course'
+  *     responses:
+  *       201:
+  *         description: Return saved course
+  *         schema:
+  *           $ref: '#/definitions/Course'
+  */
+
+ /**
+  * @swagger
+  * /course:
+  *   put:
+  *     tags:
+  *       - Course
+  *     summary: Update course
+  *     description: Update specific course detail
+  *     operationId: updateCourseById
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: body
+  *         description: Course object that needs to be updated to the database
+  *         in: body
+  *         required: true
+  *         schema:
+  *           $ref: '#/definitions/Course'
+  *     responses:
+  *       200:
+  *         description: Update course
+  */
+
+ /**
+  * @swagger
+  * /course/{id}:
+  *   delete:
+  *     tags:
+  *       - Course
+  *     summary: Delete course
+  *     description: Delete specific course detail
+  *     operationId: deleteCourse
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: id
+  *         description: Course id
+  *         in: path
+  *         required: true
+  *         type: string
+  *     responses:
+  *       200:
+  *         description: Delete course
   */
 
 
