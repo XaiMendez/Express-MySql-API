@@ -472,7 +472,7 @@
 
  /**
   * @swagger
-  * /teacher/{id}:
+  * /teacher/{teacherId}:
   *   get:
   *     tags:
   *       - Teacher
@@ -482,14 +482,14 @@
   *     produces:
   *       - application/json
   *     parameters:
-  *       - name: id
-  *         description: Teacher id
+  *       - name: teacherId
+  *         description: teacherId
   *         in: path
   *         required: true
   *         type: string
   *     responses:
   *       200:
-  *         description: Get teacher by id
+  *         description: Get teacher by teacherId
   */
 
  /**
@@ -542,7 +542,7 @@
 
  /**
   * @swagger
-  * /teacher/{id}:
+  * /teacher/{teacherId}:
   *   delete:
   *     tags:
   *       - Teacher
@@ -552,8 +552,8 @@
   *     produces:
   *       - application/json
   *     parameters:
-  *       - name: id
-  *         description: Teacher id
+  *       - name: teacherId
+  *         description: Teacher teacherId
   *         in: path
   *         required: true
   *         type: string
@@ -618,8 +618,10 @@
   * definition:
   *   Teacher:
   *     properties:
-  *       id:
+  *       teacherId:
   *         type: integer
+  *       code:
+  *         type: string
   *       name:
   *         type: string
 */
