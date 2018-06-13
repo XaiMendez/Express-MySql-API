@@ -9,8 +9,12 @@ const sequelize = require("../connection.js");
 // import Group model
 const Group = require("../models/group.js")(sequelize, Sequelize);
 const Course = require("../models/course.js")(sequelize, Sequelize);
+const Schedule = require("../models/schedule.js")(sequelize, Sequelize);
+const Teacher = require("../models/teacher.js")(sequelize, Sequelize);
 
 Group.belongsTo(Course, {foreignKey:'courseId'});
+Group.belongsTo(Schedule, {foreignKey:'scheduleId'});
+Group.belongsTo(Teacher, {foreignKey:'teacherId'});
 
 
 
@@ -42,20 +46,21 @@ function createGroup(req, res){
 // find all
 function findAllGroups(req, res){
 	Group.findAll(
-	{
-		include: [{
-			model: Course,
-    //as: 'Courses', // specifies how we want to be able to access our joined rows on the returned data
-    //through: { attributes: [''] }
-  }]
-}
-).then(groups => {
-	console.log(groups)
-	res.status(200).send(groups);
+		{
+			subQuery: false,
+			include: [
+				{model: Course,},
+				{model: Schedule,},
+				{model: Teacher,}
+			]
+	}
+	).then(groups => {
+		//console.log(groups);
+		groups.forEach(function(v){ delete v.dataValues.scheduleId, delete v.dataValues.courseId, delete v.dataValues.teacherId });
+		res.status(200).send(groups);
 
-});
+	});
 }
-
 
 
 // find One

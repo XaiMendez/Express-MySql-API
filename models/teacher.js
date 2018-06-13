@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
 		code: DataTypes.STRING,
 		name: DataTypes.STRING,
 		
-	}, {});
+	}, {timestamps: false});
 
 	teacher.associate = function(models) {
 		//teacher.belongsTo(models.career);

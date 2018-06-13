@@ -12,6 +12,7 @@ var api = express.Router();
 // group ROUTES
 api.get("/group/test", groupController.test);
 api.get("/group", groupController.findAllGroups);
+//api.get("/group", groupController.findAllGroupsByCourse);
 api.get("/group/:id", groupController.findGroupById);
 api.post("/group", groupController.createGroup);
 api.put("/group", groupController.updateGroupById);

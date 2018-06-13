@@ -13,6 +13,7 @@ var api = express.Router();
 api.get("/course/test", courseController.test);
 api.get("/course", courseController.findAllCourses);
 api.get("/course/:courseId", courseController.findCourseById);
+api.get("/course/:courseId/groups", courseController.findAllGroupsByCourse);
 api.post("/course", courseController.createCourse);
 api.put("/course", courseController.updateCourseById);
 api.delete("/course/:courseId", courseController.deleteCourse);

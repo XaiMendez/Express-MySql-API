@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-	var schedule = sequelize.define('schedules', {
+	var Schedule = sequelize.define('schedules', {
 
 		scheduleId: {
 			type: DataTypes.INTEGER,
@@ -8,9 +8,11 @@ module.exports = (sequelize, DataTypes) => {
 			autoIncrement: true,
 		},
 		name: DataTypes.STRING
-	}, {});
-	schedule.associate = function(models) {
-    // associations can be defined here
-  };
-  return schedule;
+	}, {timestamps: false});
+
+	Schedule.associate = function(models) {
+		Schedule.hasMany(models.Group, {foreignKey: 'scheduleId'});
+	};
+	
+	return Schedule;
 };

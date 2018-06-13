@@ -14,9 +14,8 @@ module.exports = (sequelize, DataTypes) => {
 	}, {timestamps: false});
 
 	Course.associate = function(models) {
-    // associations can be defined here
-    Course.hasMany(models.Group, {foreignKey: 'courseId'});
-  };
-  return Course;
+		Course.hasMany(models.Group, {foreignKey: 'courseId'});
+	};
+	return Course;
 
 };

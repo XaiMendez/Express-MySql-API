@@ -8,6 +8,14 @@ const sequelize = require("../connection.js");
 
 // import Course model
 const Course = require("../models/course.js")(sequelize, Sequelize);
+const Group = require("../models/group.js")(sequelize, Sequelize);
+const Schedule = require("../models/schedule.js")(sequelize, Sequelize);
+const Teacher = require("../models/teacher.js")(sequelize, Sequelize);
+
+//Course.hasMany(Group, {foreignKey:'courseId'});
+Group.belongsTo(Course, {foreignKey:'courseId'});
+Group.belongsTo(Schedule, {foreignKey:'scheduleId'});
+Group.belongsTo(Teacher, {foreignKey:'teacherId'});
 
 function test(req, res){
 	res.status(200).send({message: 'hello from CourseController'});
@@ -64,6 +72,25 @@ function findCourseById(req, res){
 
 }
 
+// find all
+function findAllGroupsByCourse(req, res){
+	Group.findAll(
+	{
+		where: { courseId: req.params.courseId },
+		include: [
+		{model: Course,},
+		{model: Schedule,},
+		{model: Teacher,}
+		]
+	}
+	).then(groups => {
+		//console.log(groups);
+		groups.forEach(function(v){ delete v.dataValues.scheduleId, delete v.dataValues.courseId, delete v.dataValues.teacherId });
+		res.status(200).send(groups);
+
+	});
+}
+
 // update
 function updateCourseById(req, res){
 
@@ -108,6 +135,7 @@ module.exports = {
 	findAllCourses,
 	createCourse,
 	findCourseById,
+	findAllGroupsByCourse,
 	updateCourseById,
 	deleteCourse
 }
