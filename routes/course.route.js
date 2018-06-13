@@ -12,9 +12,9 @@ var api = express.Router();
 // USER ROUTES
 api.get("/course/test", courseController.test);
 api.get("/course", courseController.findAllCourses);
-api.get("/course/:id", courseController.findCourseById);
+api.get("/course/:courseId", courseController.findCourseById);
 api.post("/course", courseController.createCourse);
 api.put("/course", courseController.updateCourseById);
-api.delete("/course/:id", courseController.deleteCourse);
+api.delete("/course/:courseId", courseController.deleteCourse);
 
 module.exports = api;
