@@ -18,8 +18,9 @@ const authRoute = require("./routes/auth.route.js");
 const userRoute = require("./routes/user.route.js");
 
 const CareerRoute = require("./routes/career.route.js");
-const ScheduleRoute = require("./routes/schedule.route.js");
 const CourseRoute = require("./routes/course.route.js");
+const ScheduleRoute = require("./routes/schedule.route.js");
+const TeacherRoute = require("./routes/teacher.route.js");
 
 const GroupRoute = require("./routes/group.route.js");
 
@@ -28,8 +29,9 @@ app.use("/", swaggerRoute);
 app.use("/api", userRoute);
 app.use("/api", authRoute);
 app.use("/api", CareerRoute);
-app.use("/api", ScheduleRoute);
 app.use("/api", CourseRoute);
+app.use("/api", ScheduleRoute);
+app.use("/api", TeacherRoute);
 app.use("/api", GroupRoute);
 
 module.exports = app;
