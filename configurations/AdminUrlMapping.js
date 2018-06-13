@@ -596,6 +596,8 @@
   *     properties:
   *       id:
   *         type: integer
+  *       code:
+  *         type: string
   *       name:
   *         type: string
 */
