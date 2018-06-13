@@ -594,7 +594,7 @@
   * definition:
   *   Course:
   *     properties:
-  *       id:
+  *       courseId:
   *         type: integer
   *       code:
   *         type: string
