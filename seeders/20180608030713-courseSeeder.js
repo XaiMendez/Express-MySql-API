@@ -13,10 +13,12 @@ module.exports = {
       }], {});
       */
       return queryInterface.bulkInsert('courses', [{
+        code: 'C12018',
         name: 'Course 1',
         createdAt: new Date(),
         updatedAt: new Date()
       }], {});
+      
     },
 
     down: (queryInterface, Sequelize) => {

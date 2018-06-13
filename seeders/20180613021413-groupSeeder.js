@@ -11,22 +11,23 @@ module.exports = {
         name: 'John Doe',
         isBetaMember: false
       }], {});
-      */
-      return queryInterface.bulkInsert('teachers', [{
-        code: 'MM012018',
-        name: 'Mario Méndez',
+    */
+    return queryInterface.bulkInsert('groups', [{
+        scheduleId: 1,
+        teacherId: 1,
+        courseId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }], {});
-    },
+  },
 
-    down: (queryInterface, Sequelize) => {
+  down: (queryInterface, Sequelize) => {
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
 
       Example:
       return queryInterface.bulkDelete('Person', null, {});
-      */
-    }
-  };
+    */
+  }
+};

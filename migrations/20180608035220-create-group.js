@@ -2,7 +2,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('groups', {
-      id: {
+      groupId: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -17,6 +17,22 @@ module.exports = {
         references: {
           model: 'courses',
           key: 'courseId'
+        },
+      },
+      teacherId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'teachers',
+          key: 'teacherId'
+        },
+      },
+      scheduleId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'schedules',
+          key: 'scheduleId'
         },
       },
         createdAt: {

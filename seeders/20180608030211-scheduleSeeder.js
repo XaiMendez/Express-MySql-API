@@ -12,8 +12,14 @@ module.exports = {
         isBetaMember: false
       }], {});
       */
-      return queryInterface.bulkInsert('schedules', [{
-        name: 'Schedule 1',
+      return queryInterface.bulkInsert('schedules', [
+      {
+        name: '6:00 am - 8:00 am',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: '8:00 am - 10:00 am',
         createdAt: new Date(),
         updatedAt: new Date()
       }], {});

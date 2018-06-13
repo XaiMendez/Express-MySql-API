@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
 			primaryKey: true,
 			autoIncrement: true,
 		},
+		code: DataTypes.STRING,
 		name: DataTypes.STRING,
 		
 	}, {});
@@ -15,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
 	Course.associate = function(models) {
     // associations can be defined here
     Course.hasMany(models.Group, {foreignKey: 'courseId'});
-};
-return Course;
+  };
+  return Course;
 
 };
