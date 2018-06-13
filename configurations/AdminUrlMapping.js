@@ -244,7 +244,7 @@
 
  /**
   * @swagger
-  * /course/{id}:
+  * /course/{courseId}:
   *   get:
   *     tags:
   *       - Course
@@ -254,14 +254,14 @@
   *     produces:
   *       - application/json
   *     parameters:
-  *       - name: id
-  *         description: Course id
+  *       - name: courseId
+  *         description: courseId
   *         in: path
   *         required: true
   *         type: string
   *     responses:
   *       200:
-  *         description: Get course by id
+  *         description: Get course by courseId
   */
 
  /**
@@ -314,7 +314,7 @@
 
  /**
   * @swagger
-  * /course/{id}:
+  * /course/{courseId}:
   *   delete:
   *     tags:
   *       - Course
@@ -324,8 +324,8 @@
   *     produces:
   *       - application/json
   *     parameters:
-  *       - name: id
-  *         description: Course id
+  *       - name: courseId
+  *         description: courseId
   *         in: path
   *         required: true
   *         type: string
