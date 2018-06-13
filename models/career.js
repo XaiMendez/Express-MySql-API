@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
 	}, {});
 
 	career.associate = function(models) {
-		career.hasMany(models.teacher);
+		//career.hasMany(models.teacher);
 	};
 
 	return career;
