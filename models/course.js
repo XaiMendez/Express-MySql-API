@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
 		code: DataTypes.STRING,
 		name: DataTypes.STRING,
 		
-	}, {});
+	}, {timestamps: false});
 
 	Course.associate = function(models) {
     // associations can be defined here

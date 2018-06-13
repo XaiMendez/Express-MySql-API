@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "express_db",
-    "password": "Testdb$10",
+    "username": "root",
+    "password": "T00R",
     "database": "express_db",
-    "host": "db4free.net",
+    "host": "localhost",
     "dialect": "mysql"
   }
 }

@@ -10,7 +10,7 @@ const sequelize = require("../connection.js");
 const Group = require("../models/group.js")(sequelize, Sequelize);
 const Course = require("../models/course.js")(sequelize, Sequelize);
 
-    Group.belongsTo(Course, {foreignKey:'courseId'});
+Group.belongsTo(Course, {foreignKey:'courseId'});
 
 
 
@@ -42,7 +42,7 @@ function createGroup(req, res){
 // find all
 function findAllGroups(req, res){
 	Group.findAll(
-  {
+	{
 		include: [{
 			model: Course,
     //as: 'Courses', // specifies how we want to be able to access our joined rows on the returned data
@@ -50,10 +50,10 @@ function findAllGroups(req, res){
   }]
 }
 ).then(groups => {
-		console.log(groups)
-		res.status(200).send(groups);
+	console.log(groups)
+	res.status(200).send(groups);
 
-	});
+});
 }
 
 
