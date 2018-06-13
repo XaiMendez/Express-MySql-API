@@ -17,11 +17,13 @@ function test(req, res){
 function createCourse(req, res){
 
 	let course = new Course();
+	course.code = req.body.code;
 	course.name = req.body.name;
 
 	if(course.name){
 
 		Course.create({  
+			code: course.code,
 			name: course.name,
 		})
 		.then(Course => {
@@ -49,7 +51,7 @@ function findAllCourses(req, res){
 function findCourseById(req, res){
 	
 	Course.findOne({
-		where: {id: req.params.id},
+		where: {courseId: req.params.courseId},
 	})
 	.then(course => {
 		//console.log(user);
@@ -69,7 +71,7 @@ function updateCourseById(req, res){
 
 		Course.update(
 			req.body,
-			{where: {id : req.body.id }})  
+			{where: {courseId : req.body.courseId }})  
 		.then(course => {
 			if(course == 0){
 				res.status(200).send({message: "Course not found."});
@@ -86,14 +88,14 @@ function updateCourseById(req, res){
 // delete
 function deleteCourse(req, res){
 	Course.destroy({
-		where: {id: req.params.id},
+		where: {courseId: req.params.courseId},
 	})
 	.then(course => {
 		console.log(course);
 		if(!course){
 			res.status(404).send({message: "Course not found."});
 		}else{
-		  res.status(201).send({message: "Course has been deleted."});
+			res.status(201).send({message: "Course has been deleted."});
 		}
 
 	});
