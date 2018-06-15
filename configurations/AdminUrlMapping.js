@@ -264,10 +264,6 @@
   *         description: Get course by courseId
   */
 
-
-
-
-
  /**
   * @swagger
   * /course/{courseId}/groups:
@@ -289,11 +285,6 @@
   *       200:
   *         description: Get groups by courseId
   */
-
-
-
-
-
 
  /**
   * @swagger
@@ -363,6 +354,120 @@
   *     responses:
   *       200:
   *         description: Delete course
+  */
+
+
+
+
+
+
+/**
+  * @swagger
+  * /group:
+  *   get:
+  *     tags:
+  *       - Group
+  *     summary: Get all groups
+  *     description: Get all groups
+  *     operationId: findAllGroups
+  *     produces:
+  *       - application/json
+  *     parameters: []
+  *     responses:
+  *       200:
+  *         description: Get all groups
+  */
+
+   /**
+  * @swagger
+  * /group/{groupId}:
+  *   get:
+  *     tags:
+  *       - Group
+  *     summary: Get specific group
+  *     description: Get specific group
+  *     operationId: findGroupById
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: groupId
+  *         description: groupId
+  *         in: path
+  *         required: true
+  *         type: integer
+  *     responses:
+  *       200:
+  *         description: Get schedule by groupId
+  */
+
+ /**
+  * @swagger
+  * /group:
+  *   post:
+  *     tags:
+  *       - Group
+  *     summary: Create group
+  *     description: Create group
+  *     operationId: createGroup
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: body
+  *         description: Group object that needs to be added to the database
+  *         in: body
+  *         required: true
+  *         schema:
+  *           $ref: '#/definitions/Group'
+  *     responses:
+  *       201:
+  *         description: Return saved group
+  *         schema:
+  *           $ref: '#/definitions/Group'
+  */
+
+ /**
+  * @swagger
+  * /group:
+  *   put:
+  *     tags:
+  *       - Group
+  *     summary: Update group
+  *     description: Update specific group detail
+  *     operationId: updateGroupById
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: body
+  *         description: Group object that needs to be updated to the database
+  *         in: body
+  *         required: true
+  *         schema:
+  *           $ref: '#/definitions/Group'
+  *     responses:
+  *       200:
+  *         description: Update Group
+  */
+
+ /**
+  * @swagger
+  * /group/{groupId}:
+  *   delete:
+  *     tags:
+  *       - Group
+  *     summary: Delete group
+  *     description: Delete specific group detail
+  *     operationId: deleteGroup
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: groupId
+  *         description: groupId
+  *         in: path
+  *         required: true
+  *         type: integer
+  *     responses:
+  *       200:
+  *         description: Delete group
   */
 
 
@@ -631,6 +736,27 @@
   *         type: string
   *       name:
   *         type: string
+*/
+
+/**
+  * @swagger
+  * definition:
+  *   Group:
+  *     properties:
+  *       groupId:
+  *         type: integer
+  *         nullable: false
+  *       name:
+  *         type: string
+  *       scheduleId:
+  *         type: integer
+  *         nullable: true
+  *       courseId:
+  *         type: integer
+  *         nullable: true
+  *       teacherId:
+  *         type: integer
+  *         nullable: true
 */
 
 /**

@@ -12,9 +12,9 @@ api.use('/api-docs', express.static('./public/api-docs/dist/'))
 
 const swaggerDefinition = {
   info: {
-    title: 'Express-MySql API',
+    title: 'EnglishTimeSV API',
     version: '1.0.0',
-    description: 'Demonstrating how to describe a RESTful API with Express Js',
+    description: 'RESTful API with Express Js-Mysql',
   },
   host: '127.0.0.1:3000',
   basePath: '/api',

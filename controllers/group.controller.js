@@ -12,9 +12,9 @@ const Course = require("../models/course.js")(sequelize, Sequelize);
 const Schedule = require("../models/schedule.js")(sequelize, Sequelize);
 const Teacher = require("../models/teacher.js")(sequelize, Sequelize);
 
-Group.belongsTo(Course, {foreignKey:'courseId'});
-Group.belongsTo(Schedule, {foreignKey:'scheduleId'});
-Group.belongsTo(Teacher, {foreignKey:'teacherId'});
+Group.belongsTo(Course, {foreignKey:'courseId', onDelete: 'cascade', hooks: true});
+Group.belongsTo(Schedule, {foreignKey:'scheduleId', onDelete: 'cascade', hooks: true});
+Group.belongsTo(Teacher, {foreignKey:'teacherId', onDelete: 'cascade', hooks: true});
 
 
 
@@ -25,15 +25,15 @@ function test(req, res){
 // create
 function createGroup(req, res){
 
-	let Group = new Group();
-	Group.name = req.body.name;
+	let group = new Group();
+	group.name = req.body.name;
 
-	if(Group.name){
+	if(group.name){
 
 		Group.create({  
-			name: Group.name,
+			name: group.name,
 		})
-		.then(Group => {
+		.then(group => {
 			let message = 'New Group has been created.';
 					//console.log(message);
 					res.status(201).send({message: message});
@@ -46,13 +46,13 @@ function createGroup(req, res){
 // find all
 function findAllGroups(req, res){
 	Group.findAll(
-		{
-			subQuery: false,
-			include: [
-				{model: Course,},
-				{model: Schedule,},
-				{model: Teacher,}
-			]
+	{
+		subQuery: false,
+		include: [
+		{model: Course,},
+		{model: Schedule,},
+		{model: Teacher,}
+		]
 	}
 	).then(groups => {
 		//console.log(groups);
@@ -67,14 +67,14 @@ function findAllGroups(req, res){
 function findGroupById(req, res){
 	
 	Group.findOne({
-		where: {id: req.params.id},
+		where: {groupId: req.params.groupId},
 	})
-	.then(Group => {
+	.then(group => {
 		//console.log(user);
-		if(!Group){
+		if(!group){
 			res.status(404).send({message:"Group not found"});
 		}else{
-			res.status(200).send(Group);
+			res.status(200).send(group);
 		}
 	});
 
@@ -87,9 +87,9 @@ function updateGroupById(req, res){
 
 		Group.update(
 			req.body,
-			{where: {id : req.body.id }})  
-		.then(Group => {
-			if(Group == 0){
+			{where: {groupId : req.body.groupId }})  
+		.then(group => {
+			if(group == 0){
 				res.status(200).send({message: "Group not found."});
 			}else{
 				res.status(200).send({message: "Group has been updated."});
@@ -103,17 +103,22 @@ function updateGroupById(req, res){
 
 // delete
 function deleteGroup(req, res){
+
+
 	Group.destroy({
-		where: {id: req.params.id},
+		where: {groupId: req.params.groupId},
 	})
-	.then(Group => {
-		console.log(Group);
-		if(!Group){
+	.then(group => {
+		//console.log(group);
+		if(!group){
 			res.status(404).send({message: "Group not found."});
 		}else{
 			res.status(201).send({message: "Group has been deleted."});
 		}
 
+	})
+	.catch(() => {
+		res.status(400).send({message: "The group can not be eliminated"});
 	});
 
 }
