@@ -264,6 +264,37 @@
   *         description: Get course by courseId
   */
 
+
+
+
+
+ /**
+  * @swagger
+  * /course/{courseId}/groups:
+  *   get:
+  *     tags:
+  *       - Course
+  *     summary: Get groups by course
+  *     description: Get groups by course
+  *     operationId: findAllGroupsByCourseId
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: courseId
+  *         description: courseId
+  *         in: path
+  *         required: true
+  *         type: string
+  *     responses:
+  *       200:
+  *         description: Get groups by courseId
+  */
+
+
+
+
+
+
  /**
   * @swagger
   * /course:
