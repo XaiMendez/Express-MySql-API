@@ -125,7 +125,16 @@ function deleteCourse(req, res){
 			res.status(201).send({message: "Course has been deleted."});
 		}
 
+	})
+	.catch(error => {
+		console.log(error.name);
+		res.status(400).send({
+			message: "The group can not be eliminated",
+			reason: error.name
+		});
 	});
+
+	;
 
 }
 
