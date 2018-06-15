@@ -73,7 +73,7 @@ function findCourseById(req, res){
 }
 
 // find all
-function findAllGroupsByCourse(req, res){
+function findAllGroupsByCourseId(req, res){
 	Group.findAll(
 	{
 		where: { courseId: req.params.courseId },
@@ -135,7 +135,7 @@ module.exports = {
 	findAllCourses,
 	createCourse,
 	findCourseById,
-	findAllGroupsByCourse,
+	findAllGroupsByCourseId,
 	updateCourseById,
 	deleteCourse
 }
