@@ -12,12 +12,21 @@ module.exports = {
         isBetaMember: false
       }], {});
       */
-      return queryInterface.bulkInsert('courses', [{
+      return queryInterface.bulkInsert('courses', [
+      {
         code: 'C12018',
         name: 'Course 1',
         createdAt: new Date(),
         updatedAt: new Date()
-      }], {});
+      },
+      {
+        code: 'C22018',
+        name: 'Course 2',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+
+      ], {});
       
     },
 
